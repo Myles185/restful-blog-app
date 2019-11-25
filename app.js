@@ -6,7 +6,16 @@ express = require("express"),
 app = express();
 
 //APP CONFIG
-mongoose.connect("mongodb://localhost:27017/restful_blog_app", { useUnifiedTopology: true }, { useNewUrlParser: true });
+// mongoose.connect("mongodb://localhost:27017/restful_blog_app", { useNewUrlParser: true });
+mongoose
+.connect("mongodb://localhost:27017/restful_blog_app", {
+useUnifiedTopology: true,
+useNewUrlParser: true,
+})
+.then(() => console.log('DB Connected!'))
+.catch(err => {
+console.log("DB Connection Error");
+})
 app.set("view engine", "ejs");
 mongoose.set("useFindAndModify", false);
 app.use(express.static("public"));
@@ -110,6 +119,10 @@ app.delete("/blogs/:id?", function(req, res){
     });
 });
 
-app.listen(process.env.PORT, process.env.IP, function(){
-    console.log("SERVER IS RUNNING!");
-})
+// app.listen(process.env.PORT, process.env.IP, function(){
+//     console.log("SERVER IS RUNNING!");
+// })
+
+app.listen(3000, function() {
+    console.log('listening on 3000')
+  })
