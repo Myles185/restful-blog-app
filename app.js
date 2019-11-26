@@ -8,7 +8,7 @@ app = express();
 //APP CONFIG
 // mongoose.connect("mongodb://localhost:27017/restful_blog_app", { useNewUrlParser: true });
 mongoose
-.connect("mongodb://localhost:27017/restful_blog_app", {
+.connect("mongodb://Myles:rest19blog@ds029476.mlab.com:29476/restful-blog-app", {
 useUnifiedTopology: true,
 useNewUrlParser: true,
 })
